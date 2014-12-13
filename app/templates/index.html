@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}
+  Peptide Sequence Conversion Tool
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <h2></h2>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9 col-md-push-3">
+      <h1>Peptide Sequence Conversion Tool</h1>
+      <p>Enter your 1-Letter AA chain sequence in the text box and click on the "Submit" button. All spaces will be ignored. Any lowercase letters entered will default to the regular form AA unless <strong>"Allow D-forms of AA"</strong> is checked.</p>
+
+        <form action="" method="post" name="convert1">
+          {{ form.hidden_tag() }}
+          <p>
+            {{ form.aa_string(size=80) }}<br />
+            {{ form.d_forms.label }} {{ form.d_forms }}<br />
+            {{ form.submit }}
+          </p>
+        </form>
+
+        <h3>Converting:</h3>
+        <h4>{{ result.chain }}</h4>
+
+        <h3> Result:</h3>
+        <h4> {{ result.conversion }}</h4>
+
+        <h3>Number of AA in chain:</h3>
+        <h4>{{ result.length }}</h4>
+    </div>
+
+    <div class="col-md-3 col-md-pull-9">
+      <table class="table table-bordered table-hover">
+        <tr>
+          <th>1-Letter</th><th>3-Letter</th><th>Name</th>
+        </tr>
+
+          {% for key, value in aa_dict.iteritems() %}
+        <tr>
+            {% if key.isupper() %}
+          <td>{{ key }}</td><td>{{ value[0] }}</td><td>{{ value[1] }}</td>
+            {% endif %}
+        </tr>
+          {% endfor %}
+      </table>
+    </div>
+  </div>
+
+
+</div>
+{% endblock %}
+
+
+
+{% block footer %}
+
+  <p>This app was written in order to replace the "Reverse" program from Peptide Companion due to the software being outdated and unable to work with Windows 7 64-bit Operating Systems and above. If you have anyquestions, comments, or recommendations regarding this app, please contact the developer.</p>
+
+  {{ super () }}
+
+{% endblock %}
