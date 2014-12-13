@@ -36,6 +36,7 @@
               <th>Total number of AA in chain</th><th>{{ result.length }}</th><th></th>
             </tr>
             <tr><th>Amino Acid</th><th>Count</th><th>Percent</th></tr>
+          {% if result.aa_stats %}  
           {% for key, value in result.aa_stats.iteritems() %}
             {% if key == 'Cysteine' %}
               <tr class="danger">
@@ -48,6 +49,7 @@
               </td>
             </tr>
           {% endfor %}
+          {% endif %}
           </table>
 
     </div>
