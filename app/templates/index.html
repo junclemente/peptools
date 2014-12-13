@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-md-9 col-md-push-3">
       <h1>Peptide Sequence Conversion Tool</h1>
-      <p>Enter your 1-Letter AA chain sequence in the text box and click on the "Submit" button. All spaces will be ignored. Any lowercase letters entered will default to the regular form AA unless <strong>"Allow D-forms of AA"</strong> is checked.</p>
+      <p>Enter your 1-Letter AA chain sequence in the text box and click on the "Convert" button. All spaces will be ignored. Any lowercase letters entered will default to the regular form AA unless <strong>"Allow D-forms of AA"</strong> is checked.</p>
 
         <form action="" method="post" name="convert1">
           {{ form.hidden_tag() }}
@@ -30,15 +30,15 @@
         <h5> Result:</h5>
         <h4 class="info"> {{ result.conversion }}</h4>
         <br />
-        
+
           <table class="table table-striped table-hover table-condensed">
             <tr>
               <th>Total number of AA in chain</th><th>{{ result.length }}</th><th></th>
             </tr>
             <tr><th>Amino Acid</th><th>Count</th><th>Percent</th></tr>
-          {% if result.aa_stats %}  
+          {% if result.aa_stats %}
           {% for key, value in result.aa_stats.iteritems() %}
-            {% if key == 'Cysteine' %}
+            {% if key == 'Cysteine' or key == 'D-Cysteine' %}
               <tr class="danger">
             {% else %}
               <tr>
@@ -73,14 +73,4 @@
 
 
 </div>
-{% endblock %}
-
-
-
-{% block footer %}
-
-  <p>This app was written in order to replace the "Reverse" program from Peptide Companion due to the software being outdated and unable to work with Windows 7 64-bit Operating Systems and above. If you have any questions, comments, or recommendations regarding this app, please contact the <a href="mailto:jun@americanpeptide.com?subject=Re:Peptide Seqence Conversion Tool">developer.</a></p>
-
-  {{ super () }}
-
 {% endblock %}
