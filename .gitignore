@@ -1,6 +1,7 @@
 # Files to ignore
 config.py
 venv/
+run.py
 
 
 # Byte-compiled / optimized / DLL files
