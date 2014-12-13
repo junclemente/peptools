@@ -1,5 +1,6 @@
 from config import aa_dict
 
+
 def convert_1_to_3(aa_chain, d_forms):
     '''
     This function takes an aa_chain in a 1-letter representation and
@@ -18,17 +19,24 @@ def convert_1_to_3(aa_chain, d_forms):
     if not d_forms:
         aa_chain = aa_chain.upper()
 
-    conversion = ''
+    aa_chain3 = ''
+    aa_stats = {}
 
     for aa in aa_chain:
         if aa in aa_dict:
-            conversion += aa_dict[aa][0] + '-'
+            aa_chain3 += aa_dict[aa][0] + '-'
+            if aa_dict[aa][1] not in aa_stats:
+                aa_stats[aa_dict[aa][1]] = 1
+            else:
+                aa_stats[aa_dict[aa][1]] += 1
         else:
-            conversion = "Error! \'" + aa + "\' does not exist. Please check your entry."
+            aa_chain3 = "Error! \'" + aa + "\' does not exist. \
+                            Please check your entry."
             break
 
-    conversion = conversion[:-1]
+    aa_chain3 = aa_chain3[:-1]
 
-    result = {'chain': aa_chain, 'length': aa_length, 'conversion': conversion}
+    result = {'chain': aa_chain, 'length': aa_length, 'conversion': aa_chain3,
+              'aa_stats': aa_stats}
 
     return result
