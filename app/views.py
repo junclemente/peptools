@@ -12,13 +12,13 @@ def index():
 
     form = ConvertOneForm()
 
-    print len(aa_dict)
+    # print len(aa_dict)
 
     if form.validate_on_submit():
-        print form.aa_string.data
-        print form.d_forms.data
+        # print form.aa_string.data
+        # print form.d_forms.data
         result = convert_1_to_3(form.aa_string.data, form.d_forms.data)
-        print result
+        # print result
         # return render_template('index.html', aa_dict=aa_dict, title='Peptide \
         #                        Sequence Conversion Tool', form=form)
 
