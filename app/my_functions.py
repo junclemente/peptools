@@ -1,5 +1,6 @@
 # Dict of AA with D forms for lowercase
 # Source for M.W.: www.sigmaaldrich.com
+# http://www.sigmaaldrich.com/life-science/metabolomics/learning-center/amino-acid-reference-chart.html
 aa_dict = {'G': ['Gly', 'Glycine', 'nonpolar', 75.07],
            'A': ['Ala', 'Alanine', 'nonpolar', 89.10],
            'V': ['Val', 'Valine', 'nonpolar', 117.15],
