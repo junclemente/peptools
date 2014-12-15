@@ -1,5 +1,45 @@
-from config import aa_dict
-
+# Dict of AA with D forms for lowercase
+# Source for M.W.: www.sigmaaldrich.com
+aa_dict = {'G': ['Gly', 'Glycine', 'nonpolar', 75.07],
+           'A': ['Ala', 'Alanine', 'nonpolar', 89.10],
+           'V': ['Val', 'Valine', 'nonpolar', 117.15],
+           'L': ['Leu', 'Leucine', 'nonpolar', 131.18],
+           'I': ['Ile', 'Isoleucine', 'nonpolar', 131.18],
+           'M': ['Met', 'Methionine', 'nonpolar', 149.21],
+           'F': ['Phe', 'Phenylalanine', 'nonpolar', 165.19],
+           'W': ['Trp', 'Tryptophan', 'nonpolar', 204.23],
+           'P': ['Pro', 'Proline', 'nonpolar', 115.13],
+           'S': ['Ser', 'Serine', 'polar', 105.09],
+           'T': ['Thr', 'Threonine', 'polar', 119.12],
+           'C': ['Cys', 'Cysteine', 'polar', 121.16],
+           'Y': ['Tyr', 'Tyrosine', 'polar', 181.19],
+           'N': ['Asn', 'Asparagine', 'polar', 132.12],
+           'Q': ['Gln', 'Glutamine', 'polar', 146.15],
+           'D': ['Asp', 'Aspartic acid', 'negative', 133.11],
+           'E': ['Glu', 'Glutamic acid', 'negative', 147.13],
+           'K': ['Lys', 'Lysine', 'positive', 146.19],
+           'R': ['Arg', 'Arginine', 'positive', 174.20],
+           'H': ['His', 'Histidine', 'positive', 155.16],
+           'g': ['DGly', 'D-Glycine', 'nonpolar', 75.07],
+           'a': ['DAla', 'D-Alanine', 'nonpolar', 89.10],
+           'v': ['DVal', 'D-Valine', 'nonpolar', 117.15],
+           'l': ['DLeu', 'D-Leucine', 'nonpolar', 131.18],
+           'i': ['DIle', 'D-Isoleucine', 'nonpolar', 131.18],
+           'm': ['DMet', 'D-Methionine', 'nonpolar', 149.21],
+           'f': ['DPhe', 'D-Phenylalanine', 'nonpolar', 165.19],
+           'w': ['DTrp', 'D-Tryptophan', 'nonpolar', 204.23],
+           'p': ['DPro', 'D-Proline', 'nonpolar', 115.13],
+           's': ['DSer', 'D-Serine', 'polar', 105.09],
+           't': ['DThr', 'D-Threonine', 'polar', 119.12],
+           'c': ['DCys', 'D-Cysteine', 'polar', 121.16],
+           'y': ['DTyr', 'D-Tyrosine', 'polar', 181.19],
+           'n': ['DAsn', 'D-Asparagine', 'polar', 132.12],
+           'q': ['DGln', 'D-Glutamine', 'polar', 146.15],
+           'd': ['DAsp', 'D-Aspartic acid', 'negative', 133.11],
+           'e': ['DGlu', 'D-Glutamic acid', 'negative', 147.13],
+           'k': ['DLys', 'D-Lysine', 'positive', 146.19],
+           'r': ['DArg', 'D-Arginine', 'positive', 174.20],
+           'h': ['DHis', 'D-Histidine', 'positive', 155.16]}
 
 def convert_1_to_3(aa_chain, d_forms):
     '''
