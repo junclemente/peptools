@@ -1,6 +1,8 @@
 # Dict of AA with D forms for lowercase
 # Source for M.W.: www.sigmaaldrich.com
 # http://www.sigmaaldrich.com/life-science/metabolomics/learning-center/amino-acid-reference-chart.html
+
+
 aa_dict = {'G': ['Gly', 'Glycine', 'nonpolar', 75.07],
            'A': ['Ala', 'Alanine', 'nonpolar', 89.10],
            'V': ['Val', 'Valine', 'nonpolar', 117.15],
@@ -41,6 +43,7 @@ aa_dict = {'G': ['Gly', 'Glycine', 'nonpolar', 75.07],
            'k': ['DLys', 'D-Lysine', 'positive', 146.19],
            'r': ['DArg', 'D-Arginine', 'positive', 174.20],
            'h': ['DHis', 'D-Histidine', 'positive', 155.16]}
+
 
 def convert_1_to_3(aa_chain, d_forms):
     '''
@@ -90,3 +93,54 @@ def convert_1_to_3(aa_chain, d_forms):
               }
 
     return result
+
+
+class PeptideChain:
+
+    def __init__(self, aa_chain, d_forms):
+        aa_chain = str(aa_chain)
+        aa_chain = aa_chain.replace(' ', '')
+        if not d_forms:
+            aa_chain = aa_chain.upper()
+        else:
+            aa_chain = aa_chain
+
+        for aa in aa_chain:
+            if aa not in aa_dict:
+                return "Error! \'" + aa + "\' does not exist.\
+                        Please check your peptide."
+
+        self.peptide = aa_chain
+
+    def peptide_chain(self):
+        return self.peptide
+
+    def convert1_to_3(self):
+        self.peptide3 = ''
+
+        for aa in self.peptide:
+            self.peptide3 += aa_dict[aa][0] + '-'
+
+        self.peptide3 = self.peptide3[:-1]
+        return self.peptide3
+
+    def peptide_length(self):
+        return len(self.peptide)
+
+    def peptide_stats(self):
+        peptide_stats = {}
+        for aa in self.peptide:
+            if aa_dict[aa][1] not in peptide_stats:
+                peptide_stats[aa_dict[aa][1]] = 1
+            else:
+                peptide_stats[aa_dict[aa][1]] += 1
+
+        return peptide_stats
+
+
+pep1 = PeptideChain('AACCHI', False)
+
+print pep1.peptide_chain()
+print pep1.convert1_to_3()
+print pep1.peptide_length()
+print pep1.peptide_stats()

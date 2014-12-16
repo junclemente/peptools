@@ -2,7 +2,7 @@ from flask import render_template
 from app import app
 from forms import ConvertOneForm
 from config import aa_dict
-from my_functions import convert_1_to_3
+from my_functions import convert_1_to_3, PeptideChain
 
 
 @app.route('/', methods=['GET', 'POST'])
