@@ -17,7 +17,10 @@ def index():
 
     if form.validate_on_submit():
         # result = convert_1_to_3(form.aa_string.data, form.d_forms.data)
-        peptide1 = PeptideChain(form.aa_string.data, form.d_forms.data)
+        peptide1 = PeptideChain(form.aa_string.data, form.d_forms.data,
+                                form.convert3.data)
+        print form.d_forms.data
+        print form.convert3.data
         result['chain'] = peptide1.peptide_chain()
         result['length'] = peptide1.peptide_length()
         result['conversion'] = peptide1.convert1_to_3()
