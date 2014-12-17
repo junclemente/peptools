@@ -33,7 +33,8 @@
 
           <table class="table table-striped table-hover table-condensed">
             <tr>
-              <th>Total number of AA in chain</th><th>{{ result.length }}</th><th></th>
+              <th>Total number of AA in chain</th><th>{{ result.length }}</th>
+              <th>M.W. = {{ '%0.2f' % result.mo_weight|float }} g/mol</th>
             </tr>
             <tr><th>Amino Acid</th><th>Count</th><th>Percent</th></tr>
           {% if result.aa_stats %}

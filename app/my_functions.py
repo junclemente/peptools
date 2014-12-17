@@ -1,12 +1,9 @@
+# Source for M.W.: American Peptide Company
 # Dict of AA with D forms for lowercase
-# Source for M.W.: www.sigmaaldrich.com
-# http://www.sigmaaldrich.com/life-science/metabolomics/learning-center/amino-acid-reference-chart.html
-
-
 aa_dict = {'G': ['Gly', 'Glycine', 'nonpolar', 75.07],
-           'A': ['Ala', 'Alanine', 'nonpolar', 89.10],
+           'A': ['Ala', 'Alanine', 'nonpolar', 89.09],
            'V': ['Val', 'Valine', 'nonpolar', 117.15],
-           'L': ['Leu', 'Leucine', 'nonpolar', 131.18],
+           'L': ['Leu', 'Leucine', 'nonpolar', 131.17],
            'I': ['Ile', 'Isoleucine', 'nonpolar', 131.18],
            'M': ['Met', 'Methionine', 'nonpolar', 149.21],
            'F': ['Phe', 'Phenylalanine', 'nonpolar', 165.19],
@@ -17,16 +14,16 @@ aa_dict = {'G': ['Gly', 'Glycine', 'nonpolar', 75.07],
            'C': ['Cys', 'Cysteine', 'polar', 121.16],
            'Y': ['Tyr', 'Tyrosine', 'polar', 181.19],
            'N': ['Asn', 'Asparagine', 'polar', 132.12],
-           'Q': ['Gln', 'Glutamine', 'polar', 146.15],
-           'D': ['Asp', 'Aspartic acid', 'negative', 133.11],
-           'E': ['Glu', 'Glutamic acid', 'negative', 147.13],
+           'Q': ['Gln', 'Glutamine', 'polar', 146.14],
+           'D': ['Asp', 'Aspartic acid', 'negative', 133.1],
+           'E': ['Glu', 'Glutamic acid', 'negative', 147.14],
            'K': ['Lys', 'Lysine', 'positive', 146.19],
            'R': ['Arg', 'Arginine', 'positive', 174.20],
-           'H': ['His', 'Histidine', 'positive', 155.16],
-           'g': ['DGly', 'D-Glycine', 'nonpolar', 75.07],
-           'a': ['DAla', 'D-Alanine', 'nonpolar', 89.10],
+           'H': ['His', 'Histidine', 'positive', 155.15],
+           # 'g': ['DGly', 'D-Glycine', 'nonpolar', 75.07],  # Does not exist
+           'a': ['DAla', 'D-Alanine', 'nonpolar', 89.09],
            'v': ['DVal', 'D-Valine', 'nonpolar', 117.15],
-           'l': ['DLeu', 'D-Leucine', 'nonpolar', 131.18],
+           'l': ['DLeu', 'D-Leucine', 'nonpolar', 131.17],
            'i': ['DIle', 'D-Isoleucine', 'nonpolar', 131.18],
            'm': ['DMet', 'D-Methionine', 'nonpolar', 149.21],
            'f': ['DPhe', 'D-Phenylalanine', 'nonpolar', 165.19],
@@ -37,62 +34,62 @@ aa_dict = {'G': ['Gly', 'Glycine', 'nonpolar', 75.07],
            'c': ['DCys', 'D-Cysteine', 'polar', 121.16],
            'y': ['DTyr', 'D-Tyrosine', 'polar', 181.19],
            'n': ['DAsn', 'D-Asparagine', 'polar', 132.12],
-           'q': ['DGln', 'D-Glutamine', 'polar', 146.15],
-           'd': ['DAsp', 'D-Aspartic acid', 'negative', 133.11],
-           'e': ['DGlu', 'D-Glutamic acid', 'negative', 147.13],
+           'q': ['DGln', 'D-Glutamine', 'polar', 146.14],
+           'd': ['DAsp', 'D-Aspartic acid', 'negative', 133.1],
+           'e': ['DGlu', 'D-Glutamic acid', 'negative', 147.14],
            'k': ['DLys', 'D-Lysine', 'positive', 146.19],
            'r': ['DArg', 'D-Arginine', 'positive', 174.20],
-           'h': ['DHis', 'D-Histidine', 'positive', 155.16]}
+           'h': ['DHis', 'D-Histidine', 'positive', 155.15]}
 
 
-def convert_1_to_3(aa_chain, d_forms):
-    '''
-    This function takes an aa_chain in a 1-letter representation and
-    converts it to a 3-letter AA representation. The format for the 3-letter
-    AA representation will be the 3-letter AA name with hyphens in between
-    without any spaces.
-    '''
+# def convert_1_to_3(aa_chain, d_forms):
+#     '''
+#     This function takes an aa_chain in a 1-letter representation and
+#     converts it to a 3-letter AA representation. The format for the 3-letter
+#     AA representation will be the 3-letter AA name with hyphens in between
+#     without any spaces.
+#     '''
 
-    # Removes all whitespaces from aa_chain
-    aa_chain = str(aa_chain)
-    aa_chain = aa_chain.replace(' ', '')
+#     # Removes all whitespaces from aa_chain
+#     aa_chain = str(aa_chain)
+#     aa_chain = aa_chain.replace(' ', '')
 
-    aa_length = len(aa_chain)
+#     aa_length = len(aa_chain)
 
-    # If D forms of AA are not needed, converts any lowercase to uppercase
-    if not d_forms:
-        aa_chain = aa_chain.upper()
+#     # If D forms of AA are not needed, converts any lowercase to uppercase
+#     if not d_forms:
+#         aa_chain = aa_chain.upper()
 
-    aa_chain3 = ''  # Converted aa_chain to 3-letter representation
-    aa_stats = {}  # Dict of AA used and how many of each in aa_chain
+#     aa_chain3 = ''  # Converted aa_chain to 3-letter representation
+#     aa_stats = {}  # Dict of AA used and how many of each in aa_chain
 
-    for aa in aa_chain:
-        # searches AA in aa_dict and appends to aa_chain3 if it exists
-        # if not found, process stops and an error is returned
-        if aa in aa_dict:
-            aa_chain3 += aa_dict[aa][0] + '-'
+#     for aa in aa_chain:
+#         # searches AA in aa_dict and appends to aa_chain3 if it exists
+#         # if not found, process stops and an error is returned
+#         if aa in aa_dict:
+#             aa_chain3 += aa_dict[aa][0] + '-'
 
-            # adds AA to aa_stats and calculates the total number of times
-            # each AA is used
-            if aa_dict[aa][1] not in aa_stats:
-                aa_stats[aa_dict[aa][1]] = 1
-            else:
-                aa_stats[aa_dict[aa][1]] += 1
-        else:
-            aa_chain3 = "Error! \'" + aa + "\' does not exist. \
-                            Please check your entry."
-            break
+#             # adds AA to aa_stats and calculates the total number of times
+#             # each AA is used
+#             if aa_dict[aa][1] not in aa_stats:
+#                 aa_stats[aa_dict[aa][1]] = 1
+#             else:
+#                 aa_stats[aa_dict[aa][1]] += 1
+#         else:
+#             aa_chain3 = "Error! \'" + aa + "\' does not exist. \
+#                             Please check your entry."
+#             break
 
-    # Removes hyphen after last AA
-    aa_chain3 = aa_chain3[:-1]
+#     # Removes hyphen after last AA
+#     aa_chain3 = aa_chain3[:-1]
 
-    result = {'chain': aa_chain,  # original AA chain being converted
-              'length': aa_length,  # length of AA chain
-              'conversion': aa_chain3,  # AA chain in 3-letter representation
-              'aa_stats': aa_stats  # Stats of AA chain
-              }
+#     result = {'chain': aa_chain,  # original AA chain being converted
+#               'length': aa_length,  # length of AA chain
+#               'conversion': aa_chain3,  # AA chain in 3-letter representation
+#               'aa_stats': aa_stats  # Stats of AA chain
+#               }
 
-    return result
+#     return result
 
 
 class PeptideChain:
@@ -105,11 +102,6 @@ class PeptideChain:
         else:
             aa_chain = aa_chain
 
-        for aa in aa_chain:
-            if aa not in aa_dict:
-                return "Error! \'" + aa + "\' does not exist.\
-                        Please check your peptide."
-
         self.peptide = aa_chain
 
     def peptide_chain(self):
@@ -119,7 +111,12 @@ class PeptideChain:
         self.peptide3 = ''
 
         for aa in self.peptide:
-            self.peptide3 += aa_dict[aa][0] + '-'
+            try:
+                self.peptide3 += aa_dict[aa][0] + '-'
+
+            except KeyError:
+                self.peptide3 = "Error! \'" + aa + "\' does not exist.\
+                                 Please check your peptide. "
 
         self.peptide3 = self.peptide3[:-1]
         return self.peptide3
@@ -129,18 +126,29 @@ class PeptideChain:
 
     def peptide_stats(self):
         peptide_stats = {}
-        for aa in self.peptide:
-            if aa_dict[aa][1] not in peptide_stats:
-                peptide_stats[aa_dict[aa][1]] = 1
-            else:
-                peptide_stats[aa_dict[aa][1]] += 1
+
+        try:
+            for aa in self.peptide:
+                if aa_dict[aa][1] not in peptide_stats:
+                    peptide_stats[aa_dict[aa][1]] = 1
+                else:
+                    peptide_stats[aa_dict[aa][1]] += 1
+
+        except KeyError:
+            peptide_stats = {}
 
         return peptide_stats
 
+    def mo_weight(self):
+        mw = 0
+        mw_water = 18.01528
 
-pep1 = PeptideChain('AACCHI', False)
+        try:
+            for aa in self.peptide:
+                mw += aa_dict[aa][3]
 
-print pep1.peptide_chain()
-print pep1.convert1_to_3()
-print pep1.peptide_length()
-print pep1.peptide_stats()
+            mw = mw - ((len(self.peptide)-1) * mw_water)
+        except KeyError:
+            mw = 0
+
+        return mw
