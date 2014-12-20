@@ -52,9 +52,29 @@ class PeptideChain:
         aa_chain = str(aa_chain)
         aa_chain = aa_chain.replace(' ', '')
 
-        self.peptide = aa_chain
+        self.peptide = aa_chain  # peptide chain entered without spaces
         self.d_forms = d_forms
         self.convert3 = convert3
+
+    def make_peptide_chain(self):
+
+        peptide1 = ''
+        # Creates peptide 1 letter representation.
+        if not self.convert3:
+            if not self.d_forms:
+                peptide1 = self.peptide.upper()
+
+        # Convert3 is true, therefore creates peptide 1 letter representation from
+        # 3 letter representation
+        if self.convert3:
+            peptide_list = re.findall('([A-Z][a-z][a-z])', self.peptide)
+
+            for aa in peptide_list:
+                for key, value in aa_dict.items():
+                    if aa == value[0]:
+                        peptide1 += key
+
+        return peptide1
 
     def peptide_chain(self):
 

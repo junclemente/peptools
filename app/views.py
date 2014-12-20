@@ -21,7 +21,8 @@ def index():
                                 form.convert3.data)
         print form.d_forms.data
         print form.convert3.data
-        result['chain'] = peptide1.peptide_chain()
+        # result['chain'] = peptide1.peptide_chain()
+        result['chain'] = peptide1.make_peptide_chain()
         result['length'] = peptide1.peptide_length()
         result['conversion'] = peptide1.convert1_to_3()
         result['aa_stats'] = peptide1.peptide_stats()
