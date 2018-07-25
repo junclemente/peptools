@@ -46,7 +46,7 @@ aa_dict = {'G': ['Gly', 'Glycine', 'nonpolar', 75.07],
 
 class PeptideChain:
 
-    def __init__(self, aa_chain, d_forms, convert3):
+    def __init__(self, aa_chain, d_forms = False, convert3 = False):
 
         # removes all spaces from AA chain
         aa_chain = str(aa_chain)
@@ -63,6 +63,8 @@ class PeptideChain:
         if not self.convert3:
             if not self.d_forms:
                 peptide1 = self.peptide.upper()
+
+        print peptide1
 
         # Convert3 is true, therefore creates peptide 1 letter representation from
         # 3 letter representation
@@ -90,6 +92,7 @@ class PeptideChain:
             print self.peptide
             print peptide3_list
             return peptide3_list
+
 
     def convert1_to_3(self):
 
