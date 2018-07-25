@@ -1,8 +1,8 @@
 from flask import render_template
 from app import app
 from forms import ConvertOneForm
-from config import aa_dict
-from my_functions import PeptideChain
+# from config import aa_dict
+from my_functions import PeptideChain, aa_dict
 
 
 @app.route('/', methods=['GET', 'POST'])
