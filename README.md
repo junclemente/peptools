@@ -1,13 +1,8 @@
-Peptide Tools
-=============
+# Peptide Tool
 
 This is a simple web app written in Flask and Python.
 Currently, its purpose is to take an amino acid chain written in 1-letter representation and
-converts it to its 3-letter representation equivalent. 
-
-There are other apps out there that do something similar and may have more features but this 
-one is written and customized specifically for American Peptide Co., Inc. and their output
-requirements.
+converts it to its 3-letter representation equivalent. Even though there are other apps that perform the same function, this app was written specifically for a company I was working for and developed with their specific requirements. 
 
 ## How To Use
 You need to download the zip or clone the repository to your computer. You will also need to have VirtualBox and Vagrant installed on your computer to run this app.
