@@ -52,7 +52,10 @@ class PeptideChain:
         aa_chain = str(aa_chain)
         aa_chain = aa_chain.replace(' ', '')
 
-        self.peptide = aa_chain  # peptide chain entered without spaces
+        if d_forms:
+          self.peptide = aa_chain  # peptide chain entered without spaces
+        else:
+          self.peptide = aa_chain.upper()
         self.d_forms = d_forms
         self.convert3 = convert3
 
